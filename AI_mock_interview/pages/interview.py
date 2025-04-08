@@ -105,11 +105,14 @@ with col1:
             st.markdown("<div style='margin-top: 20px'></div>", unsafe_allow_html=True)
             col_prev, col_next = st.columns(2)
             with col_prev:
-                if st.button("⬅️ Previous", disabled=q_index == 0):
-                    st.session_state["question_index"] -= 1
+                    if st.button("⬅️ Previous", disabled=q_index == 0):
+                        st.session_state["question_index"] -= 1
+                        st.rerun()
+
             with col_next:
-                if st.button("Next ➡️", disabled=q_index == len(st.session_state["questions_list"]) - 1):
-                    st.session_state["question_index"] += 1
+                    if st.button("Next ➡️", disabled=q_index == len(st.session_state["questions_list"]) - 1):
+                        st.session_state["question_index"] += 1
+                        st.rerun()
 
 # Right: Webcam + Start / Record
 with col2:
